@@ -52,9 +52,10 @@ body {
 }
 
 .logo {
-    background-image: url('img/odin-lined.png');
-    height: 100%;
-    width: 100%;
+    width: 50%;
+    height: 80%;
+    max-width: 100px;
+    max-height: 150px;
 }
 
 .logo-text {
