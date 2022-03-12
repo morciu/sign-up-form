@@ -87,6 +87,11 @@ p {
     flex: 2 1 0%;
 }
 
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .footer-section {
     background-color: #f7f4f4;
     flex: 1 1 0%;
@@ -97,4 +102,18 @@ p {
 .footer-section {
     text-align: left;
     padding: 2em;
+}
+
+.form-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    width: 150px;
+}
+
+.label-inpt {
+    display: flex;
+    flex-direction: column;
 }
