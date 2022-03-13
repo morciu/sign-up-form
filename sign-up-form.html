@@ -13,8 +13,9 @@
                     <img class="logo" src="img/odin-lined.png">
                     <div class="logo-text">Odin</div>
                 </div>
+                <div class="imgCredits">Photo by <a href="https://unsplash.com/photos/25xggax4bSA">Halie West</a> on <a href="https://unsplash.com/">Upsplash</a></div>
             </div>
-
+            <form action="">
             <div class="right">
                 <div class="header-section">
                     <p>This is not a real online service!</p>
@@ -24,21 +25,21 @@
                 </div>
                 <div class="form-section">
                     <p>Let's do this!</p>
-                    <form class="form-container">
+                    <div class="form-container">
                         <div class="form-div">
                             <div class="label-inpt">
                                 <label for="f-name">First Name</label>
-                                <input type="text" id="f-name" name="f-name">
+                                <input type="text" id="f-name" name="f-name" required>
                             </div>
                             <div class="label-inpt">
                                 <label for="l-name">Last Name</label>
-                                <input type="text" id="l-name" name="l-name">
+                                <input type="text" id="l-name" name="l-name" required>
                             </div>
                         </div>
                         <div class="form-div">
                             <div class="label-inpt">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email">
+                                <input type="email" id="email" name="email" required>
                             </div>
                             <div class="label-inpt">
                                 <label for="phone">Phone Number</label>
@@ -48,17 +49,43 @@
                         <div class="form-div">
                             <div class="label-inpt">
                                 <label for="pwd">Password</label>
-                                <input type="password" id="pwd" name="pwd">
+                                <input type="password" id="pwd" name="pwd" required>
+                                <div id="pwd-match-error"></div>
                             </div>
                             <div class="label-inpt">
                                 <label for="c-pwd">Confirm Password</label>
-                                <input type="password" id="c-pwd" name="c-pwd">
+                                <input type="password" id="c-pwd" name="c-pwd" required>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-                <div class="footer-section">footer stuff</div>
+                <div class="footer-section">
+                    <button type="submit" id="submitBtn">Create Account</button>
+                    <div id="loginMsg">Already have an account? <a href="">Log in</a></div>
+                </div>
             </div>
+        </form>
         </div>
+        <script defer>
+            let password = document.querySelector("#pwd");
+            let confPassword = document.querySelector("#c-pwd");
+            let pwdInputs = [password, confPassword];
+            let pwdMismatchError = document.querySelector("#pwd-match-error");
+
+            pwdInputs.forEach(inpt => {
+                inpt.addEventListener('input', () => {
+                if (password.value != confPassword.value) {
+                    pwdMismatchError.innerText = "*Passwords do not match";
+                    password.setCustomValidity('invalid');
+                    confPassword.setCustomValidity('invalid');
+                }
+                else {
+                    pwdMismatchError.innerText = "";
+                    password.setCustomValidity('');
+                    confPassword.setCustomValidity('');
+                }
+            });
+        })
+        </script>
     </body>
 </html>
